@@ -1,0 +1,20 @@
+{
+  "name": "lambda-hello-asso-utils",
+  "version": "1.0.0",
+  "description": "AWS Lambda Node.js 24.x function",
+  "main": "src/index.mjs",
+  "scripts": {
+    "build:layer": "cd layer/nodejs && yarn install",
+    "zip:layer": "mkdir -p dist && cd layer && zip -r ../dist/layer.zip nodejs",
+    "dist:layer": "yarn build:layer && yarn zip:layer",
+    "zip:code": "mkdir -p dist && cd src && zip -r ../dist/code.zip .",
+    "dist:code": "yarn zip:code",
+    "dist": "yarn dist:layer && yarn dist:code",
+    "lambda:upload": "bash scripts/upload.sh $@",
+    "lambda:deploy": "yarn dist && yarn lambda:upload $@",
+    "cleanup": "rm -r dist",
+    "lambda:redeploy": "yarn cleanup && yarn lambda:deploy $@"
+  },
+  "author": "",
+  "license": "MIT"
+}
