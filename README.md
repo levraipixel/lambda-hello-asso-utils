@@ -15,3 +15,11 @@ Deployment is done using `yarn lambda:redeploy <your-lambda-name>`.
 
 - AWS CLI configured
 - Permissions to update Lambda functions and layers
+
+## Environment variables
+
+- `CLIENT_ID`: OAuth2 client ID for authenticating with the HelloAsso API.
+- `CLIENT_SECRET`: OAuth2 client secret for authenticating with the HelloAsso API.
+- `ORGANIZATION_SLUG`: The HelloAsso organization slug (unique identifier) used to query organization details.
+
+These variables must be set in your Lambda environment or when running locally for the function to authenticate and access HelloAsso resources.

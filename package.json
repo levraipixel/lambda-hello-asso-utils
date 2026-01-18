@@ -13,7 +13,9 @@
     "lambda:upload": "bash scripts/upload.sh $@",
     "lambda:deploy": "yarn dist && yarn lambda:upload $@",
     "cleanup": "rm -r dist",
-    "lambda:redeploy": "yarn cleanup && yarn lambda:deploy $@"
+    "lambda:redeploy": "yarn cleanup && yarn lambda:deploy $@",
+    "lambda:invoke": "bash scripts/invoke.sh $@",
+    "lambda:run": "docker compose up"
   },
   "author": "",
   "license": "MIT"
